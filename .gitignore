@@ -1,0 +1,20 @@
+# Maven and local build output
+/target/
+/out/
+*.class
+
+# Node and local tooling output
+/node_modules/
+/.portfolio_build/
+/.firebase/
+
+# Local credentials and environment variables
+.env
+.env.*
+!.env.example
+*firebase-adminsdk*.json
+*service-account*.json
+
+# OS files
+.DS_Store
+Thumbs.db

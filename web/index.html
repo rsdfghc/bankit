@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+
+    <title>BankIt — Your money, in motion</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <main id="homeView" class="home-page">
+        <header class="home-header">
+            <a class="brand" href="#home" aria-label="BankIt home">
+                <span class="brand-mark">b</span>
+                <span>bank<span class="brand-accent">it</span></span>
+            </a>
+            <button class="button button-outline" type="button" data-open-auth="login">Log in</button>
+        </header>
+
+        <section class="home-hero">
+            <div class="home-copy">
+                <p class="eyebrow">A STUDENT VIRTUAL BANKING PROJECT</p>
+                <h1>Banking ideas,<br><span>made simple.</span></h1>
+                <p class="home-description">BankIt is a student learning project that demonstrates a digital wallet and everyday banking workflows with virtual money.</p>
+                <div class="home-actions">
+                    <button class="button button-primary" type="button" data-open-auth="register">Create an account <span aria-hidden="true">→</span></button>
+                    <button class="button button-outline" type="button" data-open-auth="login">Log in</button>
+                </div>
+                <p class="home-disclaimer">For learning and demonstration only. No real money or banking services.</p>
+            </div>
+            <aside class="home-preview" aria-label="BankIt project overview">
+                <div class="preview-top"><span class="preview-dot"></span> VIRTUAL WALLET DEMO</div>
+                <p>Your money at a glance</p>
+                <strong>Virtual balance</strong>
+                <div class="preview-balance">₱ 0.00</div>
+                <div class="preview-line"><span>Cash in</span><span>Transfer</span><span>History</span></div>
+                <div class="preview-note">A simple space to explore common banking flows.</div>
+            </aside>
+        </section>
+
+        <section class="home-about">
+            <div>
+                <p class="eyebrow">ABOUT BANKIT</p>
+                <h2>Built to learn how a banking app works.</h2>
+            </div>
+            <p>BankIt brings together a web interface, a Java server, Firebase Authentication, and Cloud Firestore. It lets users practice account access, wallet activity, virtual transfers, and roulette using virtual money.</p>
+        </section>
+
+        <section class="home-features" aria-label="Project features">
+            <article><span>01</span><h3>Virtual wallet</h3><p>View a demo balance and practice cash-in and transfers.</p></article>
+            <article><span>02</span><h3>Activity history</h3><p>Review transaction records saved for the demo account.</p></article>
+            <article><span>03</span><h3>Roulette demo</h3><p>Explore a number game with server-generated results and virtual bets.</p></article>
+        </section>
+
+        <footer class="home-footer">
+            <div><strong>BankIt</strong><span> Student learning project · Virtual money only</span></div>
+            <div class="project-links">
+                <span>GitHub profile: <strong>Add your profile URL</strong></span>
+                <span>Repository: <strong>Add your repository URL</strong></span>
+            </div>
+        </footer>
+    </main>
+
+    <main id="loginView" class="login-page">
+        <section class="login-card">
+            <a class="brand" href="#home" data-back-home aria-label="Back to BankIt home">
+                <span class="brand-mark">b</span>
+                <span>bank<span class="brand-accent">it</span></span>
+            </a>
+
+            <div class="login-copy">
+                <p class="eyebrow">A simpler way to bank</p>
+                <h1>Good money habits<br>start here.</h1>
+                <p>
+                    Sign in to see your balance, move money, and keep track
+                    of what matters.
+                </p>
+            </div>
+
+            <form id="loginForm" class="form-stack">
+                <div id="registrationFields" class="hidden">
+                  <label for="fullName">Full name</label><input id="fullName" autocomplete="name">
+                  <label for="mobile">Mobile number</label><input id="mobile" inputmode="tel" placeholder="09XX XXX XXXX">
+                </div>
+                <label for="email">Email address</label>
+                <input id="email" type="email" autocomplete="username" placeholder="you@example.com" required>
+                <label for="password">Password</label>
+                <input id="password" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters" required>
+
+                <p id="loginMessage" class="form-message" aria-live="polite"></p>
+
+                <button class="button button-primary button-wide" type="submit">
+                    <span id="submitLabel">Sign in</span> <span aria-hidden="true">→</span>
+                </button>
+            </form>
+            <button id="registerToggle" class="text-button" type="button">Create an account</button>
+            <div class="demo-note">
+                <span class="demo-dot"></span>
+                <span>
+                    <strong>Demo access</strong><br>
+                    Firebase project configuration is required before sign-in.
+                </span>
+            </div>
+
+            <p class="login-foot">
+                BankIt is a learning project. Do not enter real banking details.
+            </p>
+        </section>
+
+        <aside class="login-art" aria-label="BankIt banking dashboard preview">
+            <div class="art-top">
+                <span class="art-pill">BANKING, MADE HUMAN</span>
+                <span class="art-spark">✳</span>
+            </div>
+
+            <div class="art-message">
+                Make room for<br>
+                <em>what's next.</em>
+            </div>
+
+            <div class="art-card">
+                <div class="art-card-head">
+                    <span>bank<span class="brand-accent">it</span></span>
+                    <span>•••• 0248</span>
+                </div>
+
+                <p>Total balance</p>
+                <strong>₱ 24,680.50</strong>
+
+                <div class="art-wave">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <div class="art-caption">
+                A little more clarity.<br>
+                A lot more possibility.
+            </div>
+        </aside>
+    </main>
+
+    <main id="adminLoginView" class="admin-login-page hidden">
+        <section class="admin-login-card">
+            <a class="brand" href="/" aria-label="BankIt home">
+                <span class="brand-mark">b</span>
+                <span>bank<span class="brand-accent">it</span></span>
+            </a>
+            <p class="eyebrow">RESTRICTED ACCESS</p>
+            <h1>Admin sign in</h1>
+            <p class="subheading">Sign in with an authorized BankIt administrator account.</p>
+            <p class="admin-login-help">New admin? Add an email/password user in Firebase Console, then run <code>SetAdmin</code> with that user’s UID. Admin permission is assigned by the server.</p>
+            <form id="adminLoginForm" class="form-stack">
+                <label for="adminEmail">Email address</label>
+                <input id="adminEmail" type="email" autocomplete="username" required>
+                <label for="adminPassword">Password</label>
+                <input id="adminPassword" type="password" autocomplete="current-password" required>
+                <p id="adminLoginMessage" class="form-message" aria-live="polite"></p>
+                <button class="button button-primary button-wide" type="submit">Sign in to admin <span aria-hidden="true">→</span></button>
+            </form>
+            <a class="admin-home-link" href="/">Return to BankIt home</a>
+        </section>
+    </main>
+
+    <div id="appView" class="app-shell hidden">
+        <aside class="sidebar">
+            <a class="brand" href="#dashboard">
+                <span class="brand-mark">b</span>
+                <span>bank<span class="brand-accent">it</span></span>
+            </a>
+
+            <div class="nav-label">MENU</div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <button class="nav-item active user-nav-item" data-page="dashboard">
+                    <span class="nav-icon">⌂</span>
+                    Overview
+                </button>
+
+                <button class="nav-item user-nav-item" data-page="activity">
+                    <span class="nav-icon">↗</span>
+                    Transactions
+                </button>
+                <button class="nav-item user-nav-item" data-page="games"><span class="nav-icon">♠</span>Games</button>
+                <button class="nav-item admin-nav-item hidden" data-page="admin"><span class="nav-icon">▦</span>Overview</button>
+                <button class="nav-item admin-nav-item hidden" data-page="admin-users"><span class="nav-icon">♙</span>Users</button>
+                <button class="nav-item admin-nav-item hidden" data-page="admin-transactions"><span class="nav-icon">↗</span>Transactions</button>
+                <button class="nav-item admin-nav-item hidden" data-page="admin-games"><span class="nav-icon">♠</span>Games</button>
+                <button class="nav-item admin-nav-item hidden" data-page="settings"><span class="nav-icon">⚙</span>Settings</button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="help-card">
+                    <span class="help-icon">✳</span>
+                    <strong>Here for your next step</strong>
+                    <p>This demo keeps your activity in this browser session.</p>
+                </div>
+
+                <button id="logoutButton" class="logout-button">
+                    <span class="nav-icon">↪</span>
+                    Log out
+                </button>
+            </div>
+        </aside>
+
+        <section class="workspace">
+            <header class="topbar">
+                <div>
+                    <span class="eyebrow">PERSONAL BANKING</span>
+                    <span class="secure-label">
+                        <span class="secure-dot"></span>
+                        Demo account
+                    </span>
+                </div>
+
+                <div class="profile-menu-wrap">
+                    <button id="profileButton" class="profile-chip" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="profileMenu">
+                        <span id="avatar" class="avatar">A</span>
+                        <span id="profileName">Alex Reyes</span>
+                        <span class="chevron">⌄</span>
+                    </button>
+                    <div id="profileMenu" class="profile-menu hidden">
+                        <div class="profile-menu-details">
+                            <strong id="profileMenuName">Account</strong>
+                            <span id="profileMenuEmail"></span>
+                            <span id="profileMenuMobile"></span>
+                            <button id="copyAccountId" class="profile-copy-button" type="button">Copy account ID</button>
+                        </div>
+                        <button type="button" data-profile-page="settings">Account settings</button>
+                        <button id="profileLogoutButton" class="profile-logout" type="button">Log out</button>
+                    </div>
+                </div>
+            </header>
+
+            <section id="dashboardPage" class="page">
+                <div class="welcome-row">
+                    <div>
+                        <p id="todayLabel" class="eyebrow">YOUR MONEY AT A GLANCE</p>
+                        <h1>
+                            Welcome back,
+                            <span id="firstName">Alex</span>
+                            <span class="wave">✳</span>
+                        </h1>
+                        <p class="subheading">Here's how things are looking today.</p>
+                    </div>
+
+                    <div class="date-chip">
+                        <span class="date-icon">◷</span>
+                        <span id="dateLabel"></span>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <section class="balance-card">
+                        <div class="balance-top">
+                            <span>AVAILABLE BALANCE</span>
+                            <button id="toggleBalance" class="eye-button" aria-label="Hide balance">
+                                ◉ <span>Hide</span>
+                            </button>
+                        </div>
+
+                        <div id="balanceValue" class="balance-value">₱ 5,000.00</div>
+
+                        <div class="balance-bottom">
+                            <span>
+                                <span class="balance-status"></span>
+                                Your account is in good shape
+                            </span>
+                            <span class="account-tag">BANKIT WALLET</span>
+                        </div>
+
+                        <div class="balance-decoration decor-one"></div>
+                        <div class="balance-decoration decor-two"></div>
+                    </section>
+
+                    <section class="quick-card">
+                        <div class="section-heading">
+                            <div>
+                                <p class="eyebrow">MAKE A MOVE</p>
+                                <h2>Quick actions</h2>
+                            </div>
+                            <span class="heading-spark">✳</span>
+                        </div>
+
+                        <div class="action-list">
+                            <button class="action-button" data-action="cashin">
+                                <span class="action-icon cash-icon">＋</span>
+                                <span>
+                                    <strong>Cash in</strong>
+                                    <small>Add money to your wallet</small>
+                                </span>
+                                <span class="action-arrow">↗</span>
+                            </button>
+
+                            <button class="action-button" data-action="transfer">
+                                <span class="action-icon transfer-icon">↗</span>
+                                <span>
+                                    <strong>Send money</strong>
+                                    <small>Transfer to another account</small>
+                                </span>
+                                <span class="action-arrow">↗</span>
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="activity-card">
+                        <div class="section-heading">
+                            <div>
+                                <p class="eyebrow">YOUR LATEST MOVES</p>
+                                <h2>Recent activity</h2>
+                            </div>
+                            <button class="text-button" data-page="activity">
+                                See all <span>→</span>
+                            </button>
+                        </div>
+
+                        <div id="recentTransactions" class="transaction-list"></div>
+                    </section>
+
+                    <aside class="side-column">
+                        <section class="tip-card">
+                            <div class="tip-icon">✳</div>
+                            <p class="eyebrow">A LITTLE REMINDER</p>
+                            <h2>Small steps add up.</h2>
+                            <p>
+                                Check in on your money regularly. Knowing where
+                                you stand is a good place to start.
+                            </p>
+                            <span class="tip-decoration">✳</span>
+                        </section>
+
+                        <section class="account-card">
+                            <div class="account-heading">
+                                <span class="account-symbol">b</span>
+                                <div>
+                                    <strong>BankIt Wallet</strong>
+                                    <small>Everyday account</small>
+                                </div>
+                                <span class="account-menu">•••</span>
+                            </div>
+
+                            <div class="account-number">
+                                <span>ACCOUNT NUMBER</span>
+                                <strong id="accountNumber">•••• •••• 4567</strong>
+                            </div>
+
+                            <div class="account-divider"></div>
+
+                            <div class="account-state">
+                                <span class="secure-dot"></span>
+                                Active
+                            </div>
+                        </section>
+                    </aside>
+                </div>
+
+                <footer class="page-footer">
+                    BankIt demo · Made for learning, not for real transactions.
+                </footer>
+            </section>
+
+            <section id="activityPage" class="page hidden">
+                <div class="welcome-row">
+                    <div>
+                        <p class="eyebrow">YOUR MONEY, ACCOUNTED FOR</p>
+                        <h1>Transactions<span class="wave">✳</span></h1>
+                        <p class="subheading">A clear view of your recent activity.</p>
+                    </div>
+
+                    <button class="button button-dark" data-action="transfer">
+                        ＋ Send money
+                    </button>
+                </div>
+
+                <section class="full-activity-card">
+                    <div class="activity-toolbar">
+                        <div>
+                            <h2>All activity</h2>
+                            <p id="activityCount" class="subheading"></p>
+                        </div>
+
+                        <label class="search-box">
+                            <span>⌕</span>
+                            <input
+                                id="transactionSearch"
+                                type="search"
+                                placeholder="Search activity"
+                                aria-label="Search transactions"
+                            >
+                        </label>
+                    </div>
+
+                    <div id="allTransactions" class="transaction-list"></div>
+                </section>
+
+                <footer class="page-footer">
+                    BankIt demo · Made for learning, not for real transactions.
+                </footer>
+            </section>
+            <section id="gamesPage" class="page hidden">
+                <div class="welcome-row">
+                    <div>
+                        <p class="eyebrow">VIRTUAL MONEY ONLY</p>
+                        <h1>Games</h1>
+                        <p class="subheading">Play with virtual money and review your game history.</p>
+                    </div>
+                </div>
+
+                <div class="games-subnav"><button class="button button-dark" type="button">Roulette</button><span class="subheading">More games coming soon</span></div>
+
+                <section class="roulette-game-card" aria-label="Roulette game">
+                    <div class="roulette-reel-window" id="rouletteReelWindow">
+                        <div class="roulette-reel" id="rouletteReel" aria-live="off"></div>
+                        <span class="reel-marker" aria-hidden="true"></span>
+                    </div>
+                    <p id="rouletteResult" class="roulette-result" aria-live="polite">Choose your bet and spin.</p>
+                    <div class="roulette-sound-control">
+                        <label for="rouletteSound"><input id="rouletteSound" type="checkbox" checked> Sound effects</label>
+                        <span>Clicking ticks during the spin, then a result tone.</span>
+                    </div>
+                    <div class="roulette-controls">
+                        <label for="rouletteChoice">Bet on</label>
+                        <select id="rouletteChoice">
+                            <optgroup label="Color and even-money bets">
+                                <option value="red" style="color:#bd3940">Red pockets</option>
+                                <option value="black" style="color:#171a18">Black pockets</option>
+                                <option value="odd">Odd</option>
+                                <option value="even">Even</option>
+                            </optgroup>
+                            <optgroup label="Number and pocket color" id="rouletteNumbers"></optgroup>
+                        </select>
+                        <label for="rouletteBet">Amount (PHP)</label>
+                        <input id="rouletteBet" type="number" min="1" step="0.01" placeholder="100">
+                        <button id="spinButton" class="button button-primary" type="button">Spin</button>
+                    </div>
+                </section>
+
+                <section class="full-activity-card game-history-card">
+                    <div class="section-heading"><div><p class="eyebrow">YOUR RECENT ROUNDS</p><h2>Game history</h2></div></div>
+                    <div id="gameHistory" class="transaction-list"></div>
+                </section>
+            </section>
+            <section id="adminPage" class="page hidden">
+                <div class="admin-heading">
+                    <p class="eyebrow">AUTHORIZED ADMIN ACCESS</p>
+                    <h1>Application overview</h1>
+                    <p class="subheading">A summary of registered accounts, virtual funds, transactions, and games.</p>
+                </div>
+                <div id="adminOverviewContent" class="admin-content">Loading admin data…</div>
+            </section>
+            <section id="adminUsersPage" class="page hidden">
+                <div class="admin-heading"><p class="eyebrow">ACCOUNT MANAGEMENT</p><h1>Users</h1><p class="subheading">View and manage registered demo accounts.</p></div>
+                <div id="adminUsersContent" class="admin-content">Loading users…</div>
+            </section>
+            <section id="adminTransactionsPage" class="page hidden">
+                <div class="admin-heading"><p class="eyebrow">APPLICATION ACTIVITY</p><h1>Transactions</h1><p class="subheading">Review virtual cash-ins and transfers across accounts.</p></div>
+                <div id="adminTransactionsContent" class="admin-content">Loading transactions…</div>
+            </section>
+            <section id="adminGamesPage" class="page hidden">
+                <div class="admin-heading"><p class="eyebrow">GAME ACTIVITY</p><h1>Games</h1><p class="subheading">See who played roulette, when they played, and each result.</p></div>
+                <div id="adminGamesContent" class="admin-content">Loading game history…</div>
+            </section>
+            <section id="settingsPage" class="page hidden">
+                <div class="admin-heading"><p class="eyebrow">YOUR ACCOUNT</p><h1>Account settings</h1><p class="subheading">Update the name and mobile number on your BankIt profile.</p></div>
+                <form id="profileSettingsForm" class="settings-card">
+                    <label for="settingsName">Full name</label>
+                    <input id="settingsName" name="fullName" autocomplete="name" required maxlength="80">
+                    <label for="settingsMobile">Mobile number</label>
+                    <input id="settingsMobile" name="mobile" autocomplete="tel" required maxlength="20">
+                    <label for="settingsEmail">Sign-in email</label>
+                    <input id="settingsEmail" type="email" readonly>
+                    <p id="settingsMessage" class="form-message" aria-live="polite"></p>
+                    <button class="button button-primary" type="submit">Save changes</button>
+                </form>
+            </section>
+        </section>
+    </div>
+
+    <dialog id="actionDialog" class="action-dialog">
+        <form id="actionForm" method="dialog">
+            <button
+                type="button"
+                id="closeDialog"
+                class="dialog-close"
+                aria-label="Close"
+            >×</button>
+
+            <p id="dialogEyebrow" class="eyebrow">YOUR MONEY, YOUR MOVE</p>
+            <h2 id="dialogTitle">Cash in</h2>
+            <p id="dialogDescription" class="dialog-description">
+                Add funds to your BankIt wallet.
+            </p>
+
+            <div id="receiverField" class="dialog-field hidden">
+                <label for="receiver">Receiver mobile number</label>
+                <input
+                    id="receiver"
+                    inputmode="tel"
+                    placeholder="09XX XXX XXXX"
+                >
+            </div>
+
+            <div class="dialog-field">
+                <label for="amount">Amount (PHP)</label>
+                <div class="amount-input">
+                    <span>₱</span>
+                    <input
+                        id="amount"
+                        inputmode="decimal"
+                        placeholder="0.00"
+                        required
+                    >
+                </div>
+            </div>
+
+            <p id="actionMessage" class="form-message" aria-live="polite"></p>
+
+            <button
+                id="confirmAction"
+                class="button button-primary button-wide"
+                type="submit"
+            >Confirm cash in</button>
+        </form>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/app.js"></script>
+</body>
+</html>
